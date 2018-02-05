@@ -14,7 +14,7 @@ module.exports = [
         });
 
         reply.on('end', () => {
-          console.log(JSON.parse(data).books.length);
+          // console.log(JSON.parse(data).books.length);
           const jsonData = JSON.parse(data).books;
           response({
             statusCode: reply.statusCode,
@@ -29,7 +29,7 @@ module.exports = [
     path: '/ratings/{id}',
     handler: (request, response) => {
       https.get('https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/findBookById/{id}', (reply) => {
-        console.log(reply.statusCode);
+        // console.log(reply.statusCode);
         response({
           statusCode: reply.statusCode,
         });

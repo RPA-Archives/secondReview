@@ -35,4 +35,14 @@ describe('test for valid content', () => {
       done();
     });
   });
+  test('should give response for get rating', (done) => {
+    const options = {
+      method: 'GET',
+      url: '/books',
+    };
+    server.inject(options, (response) => {
+      expect(response.result.body.length).toBeGreaterThan(0);
+      done();
+    });
+  });
 });
