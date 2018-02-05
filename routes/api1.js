@@ -14,4 +14,16 @@ module.exports = [
       });
     },
   },
+  {
+    method: 'GET',
+    path: '/ratings/{id}',
+    handler: (request, response) => {
+      https.get('https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/findBookById/{id}', (reply) => {
+        console.log(reply.statusCode);
+        response({
+          statusCode: reply.statusCode,
+        });
+      });
+    },
+  },
 ];
