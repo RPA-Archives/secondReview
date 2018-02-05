@@ -38,10 +38,10 @@ describe('test for valid content', () => {
   test('should give response for get rating', (done) => {
     const options = {
       method: 'GET',
-      url: '/books',
+      url: '/ratings/1',
     };
     server.inject(options, (response) => {
-      expect(response.result.body.length).toBeGreaterThan(0);
+      expect(response.result.body.length).toBe(1);
       done();
     });
   });
