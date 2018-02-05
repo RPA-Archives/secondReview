@@ -21,6 +21,7 @@
     "https": "^1.0.0",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
+    "request-promise": "^4.2.2",
     "sequelize": "^4.32.2",
     "sequelize-cli": "^3.2.0"
   }

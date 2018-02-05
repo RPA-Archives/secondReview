@@ -4,6 +4,6 @@ module.exports = {
         "jest": true
     }
     "rules":{
-            "quotes": [2, "single", "avoid-escape"], // pre v2 behavior for "avoid-escape"
+            // "quotes": [2, "single", "avoid-escape"], // pre v2 behavior for "avoid-escape"
     }
 };

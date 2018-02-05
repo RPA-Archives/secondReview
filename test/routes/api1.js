@@ -9,16 +9,7 @@ describe('test for valid status code', () => {
       url: '/books',
     };
     server.inject(options, (response) => {
-      expect(response.statusCode).toEqual(200);
-      done();
-    });
-  });
-  test('should give valid status code for get ratings', (done) => {
-    const options = {
-      method: 'GET',
-      url: '/ratings/1',
-    };
-    server.inject(options, (response) => {
+      console.log(response.result.body);
       expect(response.statusCode).toEqual(200);
       done();
     });
@@ -32,16 +23,6 @@ describe('test for valid content', () => {
     };
     server.inject(options, (response) => {
       expect(response.result.body.length).toBeGreaterThan(0);
-      done();
-    });
-  });
-  test('should give response for get rating', (done) => {
-    const options = {
-      method: 'GET',
-      url: '/ratings/1',
-    };
-    server.inject(options, (response) => {
-      expect(response.result.body.length).toBe(1);
       done();
     });
   });
