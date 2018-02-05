@@ -1,5 +1,5 @@
 const Hapi = require('hapi');
-const Routes = require('./routes');
+const Routes = require('./routes/index.js');
 
 const server = new Hapi.Server();
 
