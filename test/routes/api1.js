@@ -24,3 +24,15 @@ describe('test for valid status code', () => {
     });
   });
 });
+describe('test for valid content', () => {
+  test('should give response for get books', (done) => {
+    const options = {
+      method: 'GET',
+      url: '/books',
+    };
+    server.inject(options, (response) => {
+      expect(response.result.body.length).toBeGreaterThan(0);
+      done();
+    });
+  });
+});
