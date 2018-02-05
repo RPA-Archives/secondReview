@@ -9,7 +9,7 @@ describe('test for valid status code', () => {
       url: '/books',
     };
     server.inject(options, (response) => {
-      console.log(response.result.body);
+      // console.log(response.result.body);
       expect(response.statusCode).toEqual(200);
       done();
     });
@@ -27,3 +27,4 @@ describe('test for valid content', () => {
     });
   });
 });
+// 

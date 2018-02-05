@@ -7,26 +7,25 @@ module.exports = [
     method: 'GET',
     path: '/books',
     handler: (req, response) => {
-      request('https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/allBooks')
-      .then((booksData) => {
-        // console.log(JSON.parse(data).books);
-        return JSON.parse(booksData).books;
-      })
-      .then((booksArray)=>{
-        // console.log(booksArray);
-        booksArray.forEach((eachBook)=>{
-          request(`https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/findBookById/${eachBook.id}`)
-          .then((bookRating)=>{
-            // console.log(JSON.parse(bookRating)
-            booksArray.eachBook.rating = JSON.parse(bookRating).rating;
-            // console.log(eachBook);
-          })
+      const promise = new Promise((rep,res)=>{
+        request('https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/allBooks')
+        .then((booksData) => {
+          return JSON.parse(booksData).books;
         })
-        // console.log(booksArray)
-        return booksArray
+        .then((booksArray)=>{
+        // console.log(booksArray);
+          booksArray.every((eachBook)=>{
+          // console.log(eachBook);
+            request(`https://5gj1qvkc5h.execute-api.us-east-1.amazonaws.com/dev/findBookById/${eachBook.id}`)
+            .then((bookRating) => {
+              eachBook.rating = JSON.parse(bookRating).rating;
+            })
+          })
+        });
       })
+      Promise.all(promise)
       .then((finalResponse)=>{
-        // console.log(finalResponse)
+        console.log(finalResponse)
         response({
           statusCode: 200,
           body: finalResponse,
